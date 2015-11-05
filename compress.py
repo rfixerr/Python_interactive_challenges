@@ -13,6 +13,27 @@ None -> None
 'AAABCCDDDD' -> 'A3B1C2D4'    '''
 
 
+#  Algorithm
+#
+# If string is None or '' return string
+# Create compressed list
+# for char in string
+#   if char equals last_char
+#       increment counter
+#       Assign last_char to char
+#   else
+#       Append last_char to compressed list
+#       Append counter to compressed after converting it to a string
+#       Reset counter to 1
+#       Assign last_char to char
+# Append last_char to compressed list
+# Append counter to compressed after converting it to a string
+# Convert compressed list to a string
+# Testing to see which string has the shortest length
+# If length(compressed_string) is shorter than length(string)
+#   return compressed_string
+# Else
+#   return string
 
 
 def compress_string(string):
