@@ -19,28 +19,40 @@
 class Item(object):
 
     def __init__(self, key, value):
-        # TODO: Implement me
-        pass
+        self.key = key
+        self.value = value
 
 
 class HashTable(object):
 
     def __init__(self, size):
-        # TODO: Implement me
-        pass
+        self.size = size
+        self.table = [[] for _ in range(self.size)]
+
 
     def hash_function(self, key):
-        # TODO: Implement me
-        pass
+        return key % self.size
+
 
     def set(self, key, value):
-        # TODO: Implement me
-        pass
+        hash_index = self.hash_function(key)
+        for item in self.table[hash_index]:
+            if item.key == key:
+                item.value = value
+                return
+        self.table[hash_index].append(Item(key, value))
+
 
     def get(self, key):
-        # TODO: Implement me
-        pass
+        hash_index = self.hash_function(key)
+        for item in self.table[hash_index]:
+            if item.key == key:
+                return item.value
+        return None
+
 
     def remove(self, key):
-        # TODO: Implement me
-        pass
+        hash_index = self.hash_function(key)
+        for i, item in enumerate(self.table[hash_index]):
+            if item.key == key:
+                del self.table[hash_index][i]
